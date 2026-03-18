@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Boulanger — Services &amp; Tarifs</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --or:#FF6600;--orl:#FFF3EB;--orm:#FFD9BD;
+  --bg:#F4F5F7;--s:#fff;--s2:#F9F9FB;
+  --bd:#EBEBEE;--bd2:#DDDDE5;
+  --t:#111318;--t2:#5C5F6E;--t3:#9DA0AF;
+  --sha:0 1px 3px rgba(0,0,0,.06);
+  --shb:0 4px 16px rgba(0,0,0,.08),0 1px 4px rgba(0,0,0,.04);
+  --r:10px;--rl:14px;
+  --f:'Plus Jakarta Sans',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:var(--f);background:var(--bg);color:var(--t);min-height:100vh;-webkit-font-smoothing:antialiased;}
+.hd{background:var(--s);border-bottom:1px solid var(--bd);height:56px;display:flex;align-items:center;padding:0 24px;gap:16px;position:sticky;top:0;z-index:200;box-shadow:var(--sha);}
+.logo img{height:26px;display:block;}
+.hd-sep{width:1px;height:22px;background:var(--bd2);flex-shrink:0;}
+.sw{position:relative;flex:1;max-width:440px;}
+.sw input{width:100%;background:var(--bg);border:1.5px solid var(--bd);border-radius:22px;padding:8px 36px 8px 38px;font-size:13px;font-family:var(--f);color:var(--t);outline:none;transition:all .15s;}
+.sw input:focus{border-color:var(--or);background:var(--s);box-shadow:0 0 0 3px rgba(255,102,0,.1);}
+.sw input::placeholder{color:var(--t3);}
+.si{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--t3);pointer-events:none;}
+.sc{position:absolute;right:12px;top:50%;transform:translateY(-50%);color:var(--t3);cursor:pointer;font-size:17px;display:none;line-height:1;}
+.hd-r{margin-left:auto;}
+.rb{display:flex;align-items:center;gap:7px;padding:6px 14px;border:1.5px solid var(--bd2);border-radius:8px;font-size:12.5px;font-weight:600;color:var(--t2);cursor:pointer;background:var(--s);font-family:var(--f);transition:all .15s;}
+.rb:hover,.rb.on{border-color:var(--or);color:var(--or);}
+.rbg{background:var(--or);color:#fff;border-radius:10px;font-size:10px;font-weight:700;padding:1px 6px;min-width:18px;text-align:center;}
+.lay{display:flex;min-height:calc(100vh - 56px);}
+.sb{width:210px;flex-shrink:0;background:var(--s);border-right:1px solid var(--bd);padding:16px 0;display:flex;flex-direction:column;position:sticky;top:56px;height:calc(100vh - 56px);overflow-y:auto;}
+.sbl{font-size:10px;font-weight:700;color:var(--t3);letter-spacing:.09em;text-transform:uppercase;padding:8px 16px 4px;}
+.sbi{display:flex;align-items:center;gap:9px;padding:9px 16px;font-size:13px;font-weight:500;color:var(--t2);cursor:pointer;border-left:2px solid transparent;transition:all .12s;user-select:none;}
+.sbi:hover{background:var(--orl);color:var(--t);}
+.sbi.on{background:var(--orl);color:var(--or);border-left-color:var(--or);font-weight:600;}
+.sbi-ico{font-size:14px;width:20px;text-align:center;flex-shrink:0;}
+.sbsep{height:1px;background:var(--bd);margin:8px 12px;}
+.sbrec{margin:auto 12px 12px;background:var(--orl);border:1.5px solid var(--orm);border-radius:var(--r);padding:11px 13px;cursor:pointer;transition:all .15s;}
+.sbrec:hover{background:#FFE5CC;border-color:var(--or);}
+.sbrec.on{background:var(--or);border-color:var(--or);}
+.sbrec.on .srl,.sbrec.on .srt{color:#fff;}
+.srtop{display:flex;justify-content:space-between;align-items:center;margin-bottom:3px;}
+.srl{font-size:10.5px;font-weight:700;color:var(--or);letter-spacing:.06em;text-transform:uppercase;}
+.srn{background:var(--or);color:#fff;font-size:10px;font-weight:700;border-radius:10px;padding:1px 6px;}
+.sbrec.on .srn{background:rgba(255,255,255,.3);}
+.srt{font-size:18px;font-weight:800;color:var(--or);letter-spacing:-.3px;}
+.main{flex:1;padding:20px 24px;overflow:auto;}
+.pgt{font-size:21px;font-weight:800;color:var(--t);margin-bottom:4px;letter-spacing:-.3px;}
+.pgt span{color:var(--or);}
+.pgs{font-size:13px;color:var(--t3);margin-bottom:22px;}
+.hgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.hc{background:var(--s);border:1.5px solid var(--bd);border-radius:18px;padding:36px 28px 30px;cursor:pointer;transition:all .2s;box-shadow:var(--sha);position:relative;overflow:hidden;min-height:220px;display:flex;flex-direction:column;justify-content:space-between;}
+.hc::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--or);transform:scaleX(0);transform-origin:left;transition:transform .22s;}
+.hc::after{content:'';position:absolute;bottom:0;right:0;width:90px;height:90px;border-radius:50%;background:var(--orl);transform:translate(30px,30px);transition:all .25s;z-index:0;}
+.hc:hover{border-color:var(--or);box-shadow:0 8px 32px rgba(255,102,0,.13),0 2px 8px rgba(0,0,0,.06);transform:translateY(-3px);}
+.hc:hover::before{transform:scaleX(1);}
+.hc:hover::after{transform:translate(20px,20px) scale(1.15);background:var(--orm);}
+.hcico{font-size:46px;margin-bottom:14px;display:block;position:relative;z-index:1;line-height:1;}
+.hct{font-size:17px;font-weight:800;color:var(--t);margin-bottom:5px;position:relative;z-index:1;letter-spacing:-.2px;}
+.hcs{font-size:12.5px;color:var(--t2);line-height:1.55;position:relative;z-index:1;}
+.hcsecs{font-size:11px;color:var(--t3);margin-top:7px;line-height:1.5;position:relative;z-index:1;}
+.hcn{margin-top:16px;display:inline-flex;font-size:12px;font-weight:700;color:var(--or);background:var(--orl);padding:4px 13px;border-radius:20px;border:1.5px solid var(--orm);position:relative;z-index:1;}
+.fh{display:flex;align-items:flex-start;gap:12px;margin-bottom:24px;}
+.back{display:flex;align-items:center;gap:5px;padding:6px 12px;border:1.5px solid var(--bd2);border-radius:7px;font-size:12px;font-weight:600;color:var(--t2);cursor:pointer;background:var(--s);font-family:var(--f);transition:all .15s;flex-shrink:0;}
+.back:hover{border-color:var(--or);color:var(--or);}
+.sechd{display:flex;align-items:center;gap:8px;margin:20px 0 9px;}
+.secl{font-size:10.5px;font-weight:700;color:var(--t3);letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;}
+.secln{flex:1;height:1px;background:var(--bd);}
+.rows{display:flex;flex-direction:column;gap:5px;}
+.row{display:flex;align-items:center;gap:12px;background:var(--s);border:1.5px solid var(--bd);border-radius:var(--r);padding:11px 14px;cursor:pointer;transition:all .12s;box-shadow:var(--sha);animation:fu .14s ease both;}
+.row:hover{border-color:var(--bd2);box-shadow:var(--shb);}
+.row.sel{border-color:var(--or);background:var(--orl);}
+.chk{width:19px;height:19px;border-radius:6px;border:1.5px solid var(--bd2);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .12s;background:var(--s);}
+.row.sel .chk{background:var(--or);border-color:var(--or);box-shadow:0 2px 6px rgba(255,102,0,.3);}
+.ck{width:9px;height:8px;display:none;}
+.row.sel .ck{display:block;}
+.rb2{flex:1;min-width:0;}
+.rn{font-size:13px;font-weight:500;color:var(--t);line-height:1.4;}
+.rr{font-size:11px;color:var(--t2);font-family:monospace;margin-top:3px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
+.taghg{font-size:10px;padding:1px 7px;border-radius:10px;font-weight:600;background:#FEE9E7;color:#C0392B;margin-top:4px;display:inline-block;}
+.rp{font-size:14px;font-weight:800;color:var(--t);white-space:nowrap;flex-shrink:0;letter-spacing:-.2px;}
+.row.sel .rp{color:var(--or);}
+.rowp{display:flex;flex-direction:column;}
+.subrow{padding-left:18px !important;background:var(--s2) !important;}
+.subrow:hover{background:var(--orl) !important;}
+.subrow.sel{background:var(--orl) !important;}
+mark{background:#FFE8D3;color:var(--or);border-radius:2px;padding:0 1px;}
+.bb{background:var(--s);border:1.5px solid var(--bd);border-radius:var(--rl);padding:18px;margin-top:28px;box-shadow:var(--sha);}
+.bbt{font-size:10.5px;font-weight:700;color:var(--t3);letter-spacing:.09em;text-transform:uppercase;margin-bottom:12px;}
+.bbr{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid var(--bg);gap:8px;font-size:12.5px;color:var(--t2);}
+.bbr:last-of-type{border:none;}
+.bbrm{color:var(--bd2);cursor:pointer;font-size:16px;flex-shrink:0;transition:color .1s;margin-left:4px;}
+.bbrm:hover{color:var(--or);}
+.bbdiv{height:1.5px;background:var(--bd);margin:12px 0;}
+.bbtot{display:flex;justify-content:space-between;align-items:baseline;}
+.bbtl{font-size:11.5px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;}
+.bbta{font-size:24px;font-weight:800;color:var(--or);letter-spacing:-.4px;}
+.bbcl{margin-top:12px;width:100%;padding:8px;border:1.5px solid var(--bd2);background:var(--s);color:var(--t3);font-size:12px;font-weight:600;border-radius:8px;cursor:pointer;font-family:var(--f);transition:all .15s;}
+.bbcl:hover{border-color:var(--or);color:var(--or);}
+.dvlay{display:grid;grid-template-columns:300px 1fr;gap:20px;align-items:start;max-width:100%;}
+.dvfc{background:var(--s);border:1.5px solid var(--bd);border-radius:var(--rl);padding:22px;box-shadow:var(--sha);}
+.dvft{font-size:10.5px;font-weight:700;color:var(--t3);letter-spacing:.09em;text-transform:uppercase;margin-bottom:16px;}
+.fg{margin-bottom:13px;}
+.fl{font-size:11.5px;font-weight:600;color:var(--t2);margin-bottom:5px;display:block;}
+.fi{width:100%;background:var(--bg);border:1.5px solid var(--bd);border-radius:8px;padding:8px 11px;font-size:13px;font-family:var(--f);color:var(--t);outline:none;transition:all .15s;}
+.fi:focus{border-color:var(--or);background:var(--s);box-shadow:0 0 0 3px rgba(255,102,0,.08);}
+.fi::placeholder{color:var(--t3);}
+textarea.fi{resize:vertical;min-height:72px;}
+.fg2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.genbtn{width:100%;margin-top:14px;padding:11px;background:var(--or);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:700;font-family:var(--f);cursor:pointer;transition:all .15s;}
+.genbtn:hover{background:#e55a00;box-shadow:0 4px 16px rgba(255,102,0,.3);}
+.dvpw{background:var(--s);border:1.5px solid var(--bd);border-radius:var(--rl);padding:18px;box-shadow:var(--sha);}
+.dvph{font-size:10.5px;font-weight:700;color:var(--t3);letter-spacing:.09em;text-transform:uppercase;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center;}
+.prbtn{display:flex;align-items:center;gap:6px;padding:6px 12px;border:1.5px solid var(--bd2);border-radius:7px;font-size:12px;font-weight:600;color:var(--t2);cursor:pointer;background:var(--s);font-family:var(--f);transition:all .15s;}
+.prbtn:hover{border-color:var(--or);color:var(--or);}
+#dvdoc{background:#fff;border-radius:6px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.1);width:100%;}
+.fdl{background:var(--s);border:1.5px solid var(--bd);border-radius:var(--rl);padding:18px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:7px;transition:all .18s;box-shadow:var(--sha);cursor:pointer;position:relative;overflow:hidden;}
+.fdl::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--or);transform:scaleX(0);transform-origin:left;transition:transform .2s;}
+.fdl:hover{border-color:var(--or);box-shadow:var(--shb);transform:translateY(-2px);}
+.fdl:hover::before{transform:scaleX(1);}
+.fdltop{display:flex;justify-content:space-between;align-items:flex-start;}
+.fdlico{font-size:28px;}
+.fdlbdg{font-size:10px;font-weight:700;color:#0078d4;background:#e8f4ff;padding:2px 8px;border-radius:10px;}
+.fdln{font-size:13.5px;font-weight:700;color:var(--t);}
+.fdls{font-size:11.5px;color:var(--t3);flex:1;}
+.fdlft{display:flex;justify-content:space-between;align-items:center;margin-top:5px;padding-top:9px;border-top:1px solid var(--bd);}
+.fdlf{font-size:10px;color:var(--t3);font-family:monospace;}
+.fdlbtn{font-size:11px;font-weight:600;color:var(--or);background:var(--orl);padding:3px 9px;border-radius:6px;border:1.5px solid var(--orm);}
+.fdl:hover .fdlbtn{background:var(--or);color:#fff;border-color:var(--or);}
+.icc{background:var(--s);border:1.5px solid var(--bd);border-radius:var(--rl);padding:22px;box-shadow:var(--sha);}
+.ichead{display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--bd);}
+.icico{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.icres{margin-top:10px;border-radius:8px;padding:10px 13px;font-size:12.5px;line-height:1.6;}
+.icok{background:#e8f8f0;color:#1a7a4a;}
+.icerr{background:#fdecea;color:#c0392b;}
+.icinfo{background:var(--bg);color:var(--t2);}
+.extc{display:flex;align-items:center;gap:12px;background:var(--s);border:1.5px solid var(--bd);border-radius:var(--r);padding:13px 15px;text-decoration:none;color:inherit;transition:all .15s;box-shadow:var(--sha);}
+.extc:hover{border-color:var(--or);box-shadow:var(--shb);}
+.extico{font-size:20px;flex-shrink:0;}
+.extb{flex:1;min-width:0;}
+.extn{font-size:13px;font-weight:600;color:var(--t);}
+.exts{font-size:11px;color:var(--t3);}
+.extbtn{font-size:11px;font-weight:600;color:var(--or);white-space:nowrap;padding:4px 10px;border:1.5px solid var(--orm);border-radius:6px;background:var(--orl);}
+.extc:hover .extbtn{background:var(--or);color:#fff;border-color:var(--or);}
+.empty{text-align:center;padding:56px 20px;color:var(--t3);}
+.empico{font-size:32px;margin-bottom:10px;opacity:.5;}
+@keyframes fu{from{opacity:0;transform:translateY(5px);}to{opacity:1;transform:none;}}
+.sb::-webkit-scrollbar,.main::-webkit-scrollbar{width:4px;}
+.sb::-webkit-scrollbar-thumb,.main::-webkit-scrollbar-thumb{background:var(--bd2);border-radius:4px;}
+</style>
+</head>
+<body>
+<div class="hd">
+  <div class="logo"><img src="data:image/jpeg;base64,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" alt="Boulanger" style="height:26px;display:block;"></div>
+  <div class="hd-sep"></div>
+  <div class="sw">
+    <svg class="si" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6.5" cy="6.5" r="4.5"/><line x1="10.2" y1="10.2" x2="14" y2="14"/></svg>
+    <input type="text" id="search" placeholder="Rechercher… cafetiere, pc, garantie, bbq…">
+    <span class="sc" id="sc">×</span>
+  </div>
+  <div class="hd-r">
+    <div class="rb" id="rb">
+      <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 2h1.5l2 7h7l1.5-5H5"/><circle cx="7" cy="13.5" r="1"/><circle cx="12" cy="13.5" r="1"/></svg>
+      Récap <span class="rbg" id="rbg">0</span>
+    </div>
+  </div>
+</div>
+<div class="lay">
+  <div class="sb" id="sb"></div>
+  <div class="main" id="main"></div>
+</div>
+<script>
+var PRISE=59;
+var CATS=[
+  {id:"pam",  icon:"☕",label:"PAM",  desc:"Petit électroménager",sub:"Cafetière, aspirateur, BBQ…"},
+  {id:"micro",icon:"💻",label:"Micro",desc:"Informatique",       sub:"PC, imprimante…"},
+  {id:"com",  icon:"📱",label:"Com",  desc:"Téléphonie",         sub:"Smartphone, tablette…"},
+  {id:"son",  icon:"🔊",label:"Son",  desc:"Audio",              sub:"Enceintes, casques…"},
+  {id:"gam",  icon:"🫧",label:"GAM",  desc:"Gros électroménager",sub:"Machine à laver, frigo, four…"},
+  {id:"image",icon:"🖥️",label:"Image",desc:"TV & image",         sub:"Téléviseurs, écrans…"}
+];
+var DATA={
+  pam:{sections:[
+    {title:"Réparation hors garantie",items:[
+      {id:"rp_pam_prise",name:"Frais de prise en charge",price:PRISE,ref:"—",hg:true},
+      {id:"rp_pam_f",    name:"Forfait réparation PAM",  price:69,   ref:"—",hg:true},
+      {id:"rp_pam_ra",   name:"Restitution avec produit",price:20,   ref:"—"},
+      {id:"rp_pam_rs",   name:"Restitution sans produit",price:40,   ref:"—"}
+    ]},
+    {title:"Entretien & nettoyage",items:[
+      {id:"s8",name:"Détartrage & nettoyage cafetière",price:14.99,ref:"1223333",
+       subItems:[
+         {id:"s8a",name:"Dolce Gusto",      price:14.99,ref:"1223333"},
+         {id:"s8b",name:"Nespresso",         price:14.99,ref:"1223333"},
+         {id:"s8c",name:"Vertuo",            price:14.99,ref:"1223333"},
+         {id:"s8d",name:"Machine à filtre",  price:14.99,ref:"1223333"},
+         {id:"s8e",name:"Cafetière",         price:14.99,ref:"1223333"}
+       ]},
+      {id:"s9", name:"Détartrage & nettoyage (broyeur & centrale vapeur)",price:39.99,ref:"1226177"},
+      {id:"s10",name:"Nettoyage (aspirateur balais, laveur, robot)",      price:39.99,ref:"1226265"}
+    ]},
+    {title:"Montage",items:[
+      {id:"s13",name:"Montage ventilateur",             price:9.99, ref:"1226284"},
+      {id:"s14",name:"Montage trottinette",             price:29,   ref:"1226283"},
+      {id:"s15",name:"Montage BBQ charbon",             price:39,   ref:"1089125"},
+      {id:"s16",name:"Montage BBQ gaz 1 foyer",         price:69,   ref:"1089126"},
+      {id:"s17",name:"Montage BBQ gaz 2 foyers",        price:129,  ref:"1128371"},
+      {id:"s18",name:"Montage chariot plancha / pellet",price:89,   ref:"1142774"}
+    ]}
+  ]},
+  micro:{sections:[
+    {title:"Réparation hors garantie",items:[
+      {id:"rp_micro_p",name:"Frais de prise en charge",price:PRISE,ref:"—",hg:true},
+      {id:"rp_micro_f",name:"Forfait réparation Micro",price:89,   ref:"—",hg:true},
+      {id:"rp_micro_a",name:"Restitution avec produit",price:20,   ref:"—"},
+      {id:"rp_micro_s",name:"Restitution sans produit",price:40,   ref:"—"}
+    ]},
+    {title:"Transfert & mise en service",items:[
+      {id:"s4",name:"Transfert de données (PC jusqu&#39;à 100 Go)",price:29.99,ref:"1226290"},
+      {id:"s5",name:"Transfert de données (PC + de 100 Go)",   price:49.99,ref:"1229581"},
+      {id:"s6",name:"Mise en service (PC / imprimante)",        price:29.99,ref:"1226332"},
+      {id:"s7",name:"Remasterisation (PC)",                     price:49.99,ref:"1226333"}
+    ]},
+    {title:"Nettoyage",items:[
+      {id:"s12",name:"Nettoyage (PC, imprimante)",price:29.99,ref:"1226281"}
+    ]}
+  ]},
+  com:{sections:[
+    {title:"Réparation hors garantie",items:[
+      {id:"rp_com_p",name:"Frais de prise en charge",price:PRISE,ref:"—",hg:true},
+      {id:"rp_com_f",name:"Forfait réparation Com",  price:79,   ref:"—",hg:true},
+      {id:"rp_com_a",name:"Restitution avec produit",price:20,   ref:"—"},
+      {id:"rp_com_s",name:"Restitution sans produit",price:40,   ref:"—"}
+    ]},
+    {title:"Transfert & mise en service",items:[
+      {id:"s1",name:"Transfert de données (smartphone / tablette)",       price:19.90,ref:"1088599"},
+      {id:"s2",name:"Mise en service (smartphone / tablette)",             price:19.99,ref:"1226286"},
+      {id:"s3",name:"Transfert + mise en service (smartphone / tablette)",price:29.99,ref:"1226288"}
+    ]},
+    {title:"Nettoyage",items:[
+      {id:"s11",name:"Nettoyage (smartphone)",price:14.99,ref:"1226269"}
+    ]}
+  ]},
+  son:{sections:[
+    {title:"Réparation hors garantie",items:[
+      {id:"rp_son_p",name:"Frais de prise en charge",price:PRISE,ref:"—",hg:true},
+      {id:"rp_son_f",name:"Forfait réparation Son",  price:59,   ref:"—",hg:true},
+      {id:"rp_son_a",name:"Restitution avec produit",price:20,   ref:"—"},
+      {id:"rp_son_s",name:"Restitution sans produit",price:40,   ref:"—"}
+    ]}
+  ]},
+  gam:{sections:[
+    {title:"Réparation hors garantie",items:[
+      {id:"rp_gam_p",name:"Frais de prise en charge", price:PRISE,  ref:"—",hg:true},
+      {id:"rp_gam_f",name:"Forfait réparation GAM",   price:139.99, ref:"—",hg:true},
+      {id:"rp_gam_a",name:"Restitution avec produit", price:20,     ref:"—"},
+      {id:"rp_gam_s",name:"Restitution sans produit", price:40,     ref:"—"}
+    ]},
+    {title:"Montage",items:[
+      {id:"s19",name:"Montage bureau & chaise gaming",price:39,ref:"1226282"}
+    ]}
+  ]},
+  image:{sections:[
+    {title:"Réparation hors garantie",items:[
+      {id:"rp_img_p",name:"Frais de prise en charge", price:PRISE,  ref:"—",hg:true},
+      {id:"rp_img_f",name:"Forfait réparation Image", price:139.99, ref:"—",hg:true},
+      {id:"rp_img_a",name:"Restitution avec produit", price:20,     ref:"—"},
+      {id:"rp_img_s",name:"Restitution sans produit", price:40,     ref:"—"}
+    ]}
+  ]}
+};
+
+// Flat index for search
+var FLAT=[];
+CATS.forEach(function(cat){
+  DATA[cat.id].sections.forEach(function(sec){
+    sec.items.forEach(function(item){
+      FLAT.push(Object.assign({},item,{catId:cat.id,catLabel:cat.label,section:sec.title}));
+      if(item.subItems) item.subItems.forEach(function(sub){
+        FLAT.push(Object.assign({},sub,{catId:cat.id,catLabel:cat.label,section:sec.title,parentId:item.id}));
+      });
+    });
+  });
+});
+
+// Synonyms
+var SYN={
+  "cafe":"cafetière détartrage nettoyage filtre capsules nespresso vertuo dolce",
+  "cafetiere":"cafetière détartrage nettoyage filtre capsules nespresso vertuo dolce broyeur",
+  "calcaire":"détartrage nettoyage cafetière broyeur centrale vapeur",
+  "detartrage":"détartrage nettoyage cafetière broyeur centrale vapeur",
+  "aspir":"aspirateur nettoyage balais laveur robot",
+  "aspirateur":"aspirateur nettoyage balais laveur robot",
+  "pc":"pc ordinateur micro informatique transfert remasterisation",
+  "ordinateur":"pc ordinateur micro informatique",
+  "telephone":"téléphone smartphone com nettoyage transfert",
+  "smartphone":"téléphone smartphone com nettoyage transfert",
+  "portable":"téléphone smartphone com",
+  "transfert":"transfert données pc smartphone tablette",
+  "imprimante":"imprimante nettoyage micro mise en service",
+  "tv":"image television tv réparation",
+  "television":"image television tv réparation",
+  "console":"gam réparation",
+  "gaming":"gam réparation gaming bureau chaise",
+  "barbecue":"bbq montage charbon gaz plancha",
+  "bbq":"bbq montage charbon gaz plancha",
+  "son":"son audio réparation enceinte casque",
+  "garantie":"frais prise en charge hors garantie réparation",
+  "reparation":"réparation forfait hors garantie",
+  "forfait":"réparation forfait hors garantie",
+  "nettoyage":"nettoyage détartrage aspirateur smartphone pc",
+  "montage":"montage bbq trottinette ventilateur bureau chaise"
+};
+
+var activeCat=null,basket={},searchQ="",expandedItems={},lignesLibres=[];
+
+function fmt(n){return(n%1===0?n:parseFloat(n).toFixed(2)).toString().replace(".",",")+" €";}
+function countCat(id){return DATA[id].sections.reduce(function(s,sec){return s+sec.items.length;},0);}
+function getAll(){return Object.values(basket).concat(lignesLibres);}
+
+function toggle(id){
+  if(basket[id]) delete basket[id];
+  else{var item=FLAT.filter(function(i){return i.id===id;})[0];if(item)basket[id]=item;}
+  updateBadge();render();
+}
+function toggleExpand(id){
+  if(expandedItems[id]) delete expandedItems[id];
+  else expandedItems[id]=true;
+  render();
+}
+function removeItem(id){delete basket[id];updateBadge();render();}
+function clearAll(){basket={};expandedItems={};lignesLibres=[];dvSaved.num="";updateBadge();render();}
+
+function updateBadge(){
+  var n=Object.keys(basket).length+lignesLibres.length;
+  document.getElementById("rbg").textContent=n;
+  document.getElementById("rb").className="rb"+(n>0?" on":"");
+}
+
+function goView(v){activeCat=v;buildSB();render();}
+function goHome(){activeCat=null;searchQ="";document.getElementById("search").value="";document.getElementById("sc").style.display="none";buildSB();render();}
+function setTab(id){activeCat=id;searchQ="";document.getElementById("search").value="";document.getElementById("sc").style.display="none";buildSB();render();}
+
+function render(){
+  if(activeCat==="recap") rRecap();
+  else if(activeCat==="devis") rDevis();
+  else if(activeCat==="fiches") rFiches();
+  else if(activeCat==="icloud") rIcloud();
+  else if(activeCat && DATA[activeCat]) rFiche(activeCat);
+  else if(searchQ) rSearch();
+  else rHome();
+}
+
+function score(item,q){
+  var words=q.toLowerCase().split(" ").filter(function(w){return w.length>0;});
+  var exp=words.slice();
+  words.forEach(function(w){
+    Object.keys(SYN).forEach(function(k){
+      if(k.indexOf(w)>=0||w.indexOf(k)>=0) exp=exp.concat(SYN[k].split(" "));
+    });
+  });
+  var hay=(item.name+" "+(item.section||"")+" "+(item.catLabel||"")).toLowerCase();
+  if(words.every(function(w){return hay.indexOf(w)>=0;})) return 2;
+  if(exp.some(function(w){return w.length>2&&hay.indexOf(w)>=0;})) return 1;
+  return 0;
+}
+
+function hl(text,q){
+  if(!q) return text;
+  var out=text;
+  q.toLowerCase().split(" ").filter(function(w){return w.length>1;}).forEach(function(w){
+    var safe=w.replace(/[^a-z0-9]/gi,".");
+    try{out=out.replace(new RegExp("("+safe+")","gi"),"<mark>$1</mark>");}catch(e){}
+  });
+  return out;
+}
+
+function rowH(item,idx,showCat){
+  var sel=!!basket[item.id];
+  var d="animation-delay:"+(idx*0.025)+"s";
+  if(item.subItems){
+    var anySel=item.subItems.some(function(s){return !!basket[s.id];});
+    var exp=!!expandedItems[item.id];
+    var h='<div class="rowp">';
+    var br=exp?"border-radius:10px 10px 0 0;border-bottom:none;":"";
+    h+='<div class="row'+(anySel?" sel":"")+'" data-action="expand" data-id="'+item.id+'" style="'+d+";"+br+'">';
+    h+='<div class="chk">'+(anySel?'<svg class="ck" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>':'')+'</div>';
+    h+='<div class="rb2"><div class="rn">'+(item._hl||item.name)+'</div><div class="rr">'+(item.ref&&item.ref!=="—"?'<span style="background:#f0f0f0;color:#555;padding:1px 6px;border-radius:4px;font-size:10px;font-weight:600;font-family:monospace;">'+item.ref+'</span>':"")+"</div></div>";
+    h+='<div class="rp">'+fmt(item.price)+'</div>';
+    h+='<div style="font-size:11px;color:var(--t3);margin-left:6px;transition:transform .2s;transform:rotate('+(exp?180:0)+'deg)">▼</div>';
+    h+='</div>';
+    if(exp){
+      item.subItems.forEach(function(sub,i){
+        var ss=!!basket[sub.id];
+        var isLast=i===item.subItems.length-1;
+        var br2=isLast?"border-radius:0 0 10px 10px":"border-radius:0";
+        h+='<div class="row subrow'+(ss?" sel":"")+'" data-action="toggle" data-id="'+sub.id+'" style="animation:none;'+br2+';border-top:none;">';
+        h+='<div class="chk"><svg class="ck" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>';
+        h+='<div class="rb2"><div class="rn">'+sub.name+'</div><div class="rr">Réf. '+sub.ref+'</div></div>';
+        h+='<div class="rp">'+fmt(sub.price)+'</div>';
+        h+='</div>';
+      });
+    }
+    h+='</div>';
+    return h;
+  }
+  var h='<div class="row'+(sel?" sel":"")+'" data-action="toggle" data-id="'+item.id+'" style="'+d+'">';
+  h+='<div class="chk"><svg class="ck" viewBox="0 0 9 7" fill="none"><path d="M1 3.5l2.5 2.5 4.5-5" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>';
+  h+='<div class="rb2"><div class="rn">'+(item._hl||item.name)+'</div>';
+  h+='<div class="rr">';
+  if(item.ref&&item.ref!=="—") h+='<span style="background:#f0f0f0;color:#555;padding:1px 6px;border-radius:4px;font-size:10px;font-weight:600;font-family:monospace;">'+item.ref+'</span>';
+  if(showCat&&item.catLabel) h+='<span style="color:var(--t3);font-size:11px;">'+item.catLabel+'</span>';
+  h+='</div>';
+  h+=(item.hg?'<span class="taghg">Hors garantie</span>':"")+' </div>';
+  h+='<div class="rp">'+fmt(item.price)+'</div>';
+  h+='</div>';
+  return h;
+}
+
+function bbBlock(){
+  var items=Object.values(basket);
+  if(!items.length) return "";
+  var total=items.reduce(function(s,i){return s+i.price;},0);
+  var h='<div class="bb"><div class="bbt">Sélection en cours</div>';
+  items.forEach(function(i){
+    h+='<div class="bbr"><span style="flex:1;font-size:12px;">'+i.name+'</span><span style="font-weight:600;">'+fmt(i.price)+'</span>';
+    h+='<span class="bbrm" data-action="remove" data-id="'+i.id+'">×</span></div>';
+  });
+  h+='<div class="bbdiv"></div><div class="bbtot"><span class="bbtl">Total TTC</span><span class="bbta">'+fmt(Math.round(total*100)/100)+'</span></div>';
+  h+='<button class="bbcl" data-action="clearall">Vider la sélection</button></div>';
+  return h;
+}
+
+function buildSB(){
+  var n=Object.keys(basket).length+lignesLibres.length;
+  var total=getAll().reduce(function(s,i){return s+i.price;},0);
+  var h='<div class="sbl">Catalogue</div>';
+  h+='<div class="sbi'+(!activeCat&&!searchQ?" on":"")+'" data-nav="home"><span class="sbi-ico">◈</span>Accueil</div>';
+  h+='<div style="margin:8px 0 2px"><div class="sbl">Par produit</div></div>';
+  CATS.forEach(function(c){
+    h+='<div class="sbi'+(activeCat===c.id?" on":"")+'" data-nav="cat" data-cat="'+c.id+'"><span class="sbi-ico">'+c.icon+'</span>'+c.label+'</div>';
+  });
+  h+='<div class="sbsep"></div>';
+  h+='<div class="sbi'+(activeCat==="devis"?" on":"")+'" data-nav="devis"><span class="sbi-ico">📄</span>Devis</div>';
+  h+='<div class="sbi'+(activeCat==="fiches"?" on":"")+'" data-nav="fiches"><span class="sbi-ico">📎</span>Fiches conseils</div>';
+  h+='<div class="sbi'+(activeCat==="icloud"?" on":"")+'" data-nav="icloud"><span class="sbi-ico">🔍</span>Vérif. iCloud</div>';
+  h+='<div class="sbsep"></div>';
+  h+='<div class="sbrec'+(activeCat==="recap"?" on":"")+'" data-nav="recap">';
+  h+='<div class="srtop"><span class="srl">Récap</span><span class="srn">'+n+'</span></div>';
+  h+='<div class="srt">'+fmt(Math.round(total*100)/100)+'</div></div>';
+  document.getElementById("sb").innerHTML=h;
+}
+
+// Event delegation — no inline onclick needed
+document.addEventListener("click",function(e){
+  var el=e.target;
+  // walk up to find data-action or data-nav
+  while(el&&el!==document.body){
+    if(el.dataset.action){
+      var a=el.dataset.action,id=el.dataset.id;
+      if(a==="toggle") toggle(id);
+      else if(a==="expand") toggleExpand(id);
+      else if(a==="remove"){removeItem(id);}
+      else if(a==="clearall") clearAll();
+      else if(a==="dl") doDownload(el.dataset.file);
+      else if(a==="removell"){
+        lignesLibres=lignesLibres.filter(function(l){return l.id!==id;});
+        updateBadge();
+        rDevis();
+      }
+      return;
+    }
+    if(el.dataset.nav){
+      var nav=el.dataset.nav;
+      if(nav==="home") goHome();
+      else if(nav==="cat") setTab(el.dataset.cat);
+      else if(nav==="recap"||nav==="devis"||nav==="fiches"||nav==="icloud") goView(nav);
+      return;
+    }
+    el=el.parentElement;
+  }
+});
+
+function rHome(){
+  var h='<div class="hgrid" style="height:calc(100vh - 56px - 56px);grid-auto-rows:1fr;">';
+  CATS.forEach(function(cat,i){
+    var n=countCat(cat.id);
+    var secs=DATA[cat.id].sections.map(function(s){return s.title;}).join(" · ");
+    h+='<div class="hc" data-nav="cat" data-cat="'+cat.id+'" style="animation-delay:'+(i*0.05)+'s;animation:fu .18s ease both;">';
+    h+='<div>';
+    h+='<span class="hcico">'+cat.icon+'</span>';
+    h+='<div class="hct">'+cat.label+' — '+cat.desc+'</div>';
+    h+='<div class="hcs">'+cat.sub+'</div>';
+    h+='<div class="hcsecs">'+secs+'</div>';
+    h+='</div>';
+    h+='<div class="hcn">'+n+' prestation'+(n>1?"s":"")+'</div></div>';
+  });
+  h+='</div>';
+  if(Object.keys(basket).length) h+=bbBlock();
+  document.getElementById("main").innerHTML=h;
+}
+
+function rFiche(catId){
+  var cat=CATS.filter(function(c){return c.id===catId;})[0];
+  var h='<div class="fh"><button class="back" data-nav="home">← Retour</button>';
+  h+='<div><div class="pgt">'+cat.icon+' <span>'+cat.label+'</span> — '+cat.desc+'</div>';
+  h+='<div class="pgs" style="margin-bottom:0;">'+cat.sub+'</div></div></div>';
+  var idx=0;
+  DATA[catId].sections.forEach(function(sec){
+    h+='<div class="sechd"><span class="secl">'+sec.title+'</span><div class="secln"></div></div><div class="rows">';
+    sec.items.forEach(function(item){h+=rowH(item,idx,false);idx++;});
+    h+='</div>';
+  });
+  if(Object.keys(basket).length) h+=bbBlock();
+  document.getElementById("main").innerHTML=h;
+}
+
+function rSearch(){
+  var scored=FLAT.map(function(i){return Object.assign({},i,{_score:score(i,searchQ)});}).filter(function(i){return i._score>0;});
+  scored.sort(function(a,b){return b._score-a._score;});
+  var results=scored.map(function(i){return Object.assign({},i,{_hl:hl(i.name,searchQ)});});
+  var h='<div class="pgt">« <span>'+searchQ+'</span> »</div><div class="pgs">'+results.length+' résultat'+(results.length>1?"s":"")+'</div>';
+  if(!results.length){
+    h+='<div class="empty"><div class="empico">🔍</div><div style="font-size:13px;">Aucun résultat — essaie d&#39;autres mots</div></div>';
+  } else {
+    h+='<div class="rows">';
+    results.forEach(function(item,i){h+=rowH(item,i,true);});
+    h+='</div>';
+  }
+  if(Object.keys(basket).length) h+=bbBlock();
+  document.getElementById("main").innerHTML=h;
+}
+
+function rRecap(){
+  var items=Object.values(basket);
+  var total=items.reduce(function(s,i){return s+i.price;},0);
+  var h='<div class="pgt">Récapitulatif <span>total</span></div><div class="pgs">'+items.length+' prestation'+(items.length>1?"s":"")+'</div>';
+  if(!items.length){
+    h+='<div class="empty"><div class="empico">🧾</div><div style="font-size:13px;">Aucune prestation sélectionnée.</div></div>';
+  } else {
+    var byCat={};
+    items.forEach(function(i){if(!byCat[i.catId])byCat[i.catId]=[];byCat[i.catId].push(i);});
+    h+='<div class="rows">';
+    Object.keys(byCat).forEach(function(catId){
+      var cat=CATS.filter(function(c){return c.id===catId;})[0];
+      h+='<div class="sechd"><span class="secl">'+cat.icon+' '+cat.label+'</span><div class="secln"></div></div>';
+      byCat[catId].forEach(function(item){
+        h+='<div class="row sel" style="animation:none;">';
+        h+='<div class="rb2"><div class="rn">'+item.name+'</div><div class="rr">'+(item.ref&&item.ref!=="—"?"Réf. "+item.ref:"")+'</div></div>';
+        h+='<div class="rp">'+fmt(item.price)+'</div>';
+        h+='<span class="bbrm" data-action="remove" data-id="'+item.id+'">×</span></div>';
+      });
+    });
+    h+='</div>';
+    h+='<div class="bb" style="margin-top:20px;"><div class="bbtot"><span class="bbtl">Total TTC</span><span class="bbta">'+fmt(Math.round(total*100)/100)+'</span></div>';
+    h+='<button class="bbcl" data-action="clearall">Vider la sélection</button></div>';
+  }
+  document.getElementById("main").innerHTML=h;
+}
+
+// ─── DEVIS ───
+var dvSaved={nom:"",tel:"",date:"",obs:"",num:""};
+function genDevisNum(){
+  var d=new Date();
+  var yy=d.getFullYear().toString().slice(-2);
+  var mm=String(d.getMonth()+1).padStart(2,"0");
+  var dd=String(d.getDate()).padStart(2,"0");
+  var seq=String(Math.floor(Math.random()*900)+100);
+  return "DEV-"+yy+mm+dd+"-"+seq;
+}
+
+function rDevis(){
+  var bItems=Object.values(basket);
+  // Date ISO for input[type=date] (YYYY-MM-DD)
+  var todayISO=(function(){var d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");})();
+  // Saved date: store as ISO internally, display formatted on devis
+  if(!dvSaved.dateISO) dvSaved.dateISO=todayISO;
+  var prestHTML="";
+  if(!bItems.length){
+    prestHTML='<div style="text-align:center;padding:20px;background:var(--bg);border-radius:8px;font-size:13px;color:var(--t3);">Aucune prestation — <span style="color:var(--or);cursor:pointer;" data-nav="home">retour au catalogue</span></div>';
+  } else {
+    prestHTML='<div class="rows" style="max-height:220px;overflow-y:auto;">';
+    bItems.forEach(function(i){
+      prestHTML+='<div class="row sel" style="animation:none;">';
+      prestHTML+='<div class="rb2"><div class="rn" style="font-size:12.5px;">'+i.name+'</div><div class="rr">'+(i.ref&&i.ref!=="—"?'<span style="background:#f0f0f0;color:#555;padding:1px 6px;border-radius:4px;font-size:10px;font-weight:600;font-family:monospace;">'+i.ref+'</span>':"")+"</div></div>";
+      prestHTML+='<div class="rp" style="font-size:13px;">'+fmt(i.price)+'</div>';
+      prestHTML+='<span class="bbrm" data-action="remove" data-id="'+i.id+'">×</span></div>';
+    });
+    prestHTML+='</div>';
+  }
+  var llHTML="";
+  if(lignesLibres.length){
+    llHTML='<div class="rows" style="margin-top:8px;">';
+    lignesLibres.forEach(function(l){
+      llHTML+='<div class="row sel" style="animation:none;">';
+      llHTML+='<div class="rb2"><div class="rn" style="font-size:12.5px;">'+l.name+'</div></div>';
+      llHTML+='<div class="rp" style="font-size:13px;">'+fmt(l.price)+'</div>';
+      llHTML+='<span class="bbrm" data-action="removell" data-id="'+l.id+'">×</span></div>';
+    });
+    llHTML+='</div>';
+  }
+  var opts=FLAT.map(function(i){return '<option value="'+i.name.replace(/"/g,"&quot;")+'">';}).join("");
+  var h='<div class="pgt">📄 <span>Devis</span></div><div class="pgs">Remplis les informations puis génère le devis</div>';
+  h+='<div class="dvlay">';
+  h+='<div class="dvfc"><div class="dvft">Informations client</div>';
+  h+='<div class="fg2">';
+  h+='<div class="fg"><label class="fl">Nom du client</label><input class="fi" id="dv-nom" type="text" placeholder="Jean Dupont" value="'+dvSaved.nom+'"></div>';
+  h+='<div class="fg"><label class="fl">Téléphone</label><input class="fi" id="dv-tel" type="tel" placeholder="06 00 00 00 00" value="'+dvSaved.tel+'"></div>';
+  h+='<div class="fg"><label class="fl">Date du devis</label><input class="fi" id="dv-date" type="date" value="'+dvSaved.dateISO+'"></div>';
+  h+='</div>';
+  h+='<div class="fg"><label class="fl">Observations</label><textarea class="fi" id="dv-obs" rows="2" placeholder="État du produit, remarques…">'+dvSaved.obs+'</textarea></div>';
+  h+='</div>';
+  h+='<div class="dvfc"><div class="dvft">Prestations ('+bItems.length+')</div>';
+  h+=prestHTML;
+  h+='<div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--bd);">';
+  h+='<div class="fl" style="margin-bottom:6px;">Ajouter une ligne</div>';
+  h+='<div style="display:flex;gap:8px;align-items:center;">';
+  h+='<input class="fi" id="dv-ln" list="dl-p" placeholder="Code Boulanger ou libellé libre…" style="flex:1;">';
+  h+='<input class="fi" id="dv-lp" type="number" placeholder="Prix €" style="width:85px;" step="0.01">';
+  h+='<button id="btn-add-ligne" style="padding:8px 13px;background:var(--or);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:var(--f);white-space:nowrap;">+ Ajouter</button>';
+  h+='</div>';
+  h+='<datalist id="dl-p">'+opts+'</datalist>';
+  h+=llHTML;
+  h+='</div>';
+  h+='<button class="genbtn" id="btn-gen">✦ Générer le devis</button>';
+  h+='</div>';
+  h+='<div class="dvpw"><div class="dvph">Aperçu A4 portrait<button class="prbtn" id="btn-print">🖨️ Imprimer</button></div>';
+  h+='<div id="dvdoc"><div class="empty"><div class="empico">📋</div><div style="font-size:13px;">Clique sur <strong style="color:var(--or);">Générer</strong> pour voir l&#39;aperçu</div></div></div>';
+  h+='</div></div>';
+  document.getElementById("main").innerHTML=h;
+
+  // Wire up datalist autocomplete
+  var lnInput=document.getElementById("dv-ln");
+  var lpInput=document.getElementById("dv-lp");
+  lnInput.addEventListener("input",function(){
+    var v=lnInput.value;
+    var match=FLAT.filter(function(i){return i.name===v;})[0];
+    if(match) lpInput.value=match.price;
+  });
+
+  document.getElementById("btn-add-ligne").addEventListener("click",function(){
+    var nom=lnInput.value.trim();
+    var prix=parseFloat(lpInput.value);
+    if(!nom) return;
+    lignesLibres.push({id:"ll"+Date.now(),name:nom,price:isNaN(prix)?0:prix,ref:"—"});
+    lnInput.value="";lpInput.value="";
+    updateBadge();rDevis();
+  });
+
+  document.getElementById("btn-gen").addEventListener("click",function(){
+    saveDvForm();buildDevis();
+  });
+  document.getElementById("btn-print").addEventListener("click",printDevis);
+
+  // Input listeners for live preview
+  ["dv-nom","dv-tel","dv-date","dv-obs"].forEach(function(id){
+    var el=document.getElementById(id);
+    if(el) el.addEventListener("input",function(){saveDvForm();buildDevis();});
+  });
+}
+
+function saveDvForm(){
+  dvSaved.nom=(document.getElementById("dv-nom")||{value:""}).value||"";
+  dvSaved.tel=(document.getElementById("dv-tel")||{value:""}).value||"";
+  dvSaved.dateISO=(document.getElementById("dv-date")||{value:""}).value||dvSaved.dateISO||"";
+  dvSaved.obs=(document.getElementById("dv-obs")||{value:""}).value||"";
+}
+
+function isoToFR(iso){
+  if(!iso) return new Date().toLocaleDateString("fr-FR");
+  var p=iso.split("-");
+  if(p.length!==3) return iso;
+  return p[2]+"/"+p[1]+"/"+p[0];
+}
+
+function buildDevis(){
+  saveDvForm();
+  var nom=dvSaved.nom||"—";
+  var tel=dvSaved.tel||"—";
+  var date=isoToFR(dvSaved.dateISO);
+  var obs=dvSaved.obs||"";
+  var all=getAll();
+  var total=all.reduce(function(s,i){return s+i.price;},0);
+  var totalHT=total/1.2;
+  var totalTVA=total-totalHT;
+  if(!dvSaved.num) dvSaved.num=genDevisNum();
+  var num=dvSaved.num;
+  var dateV=dvSaved.dateISO?new Date(dvSaved.dateISO):new Date();dateV.setDate(dateV.getDate()+30);
+  var validite=dateV.toLocaleDateString("fr-FR",{weekday:"long",year:"numeric",month:"long",day:"numeric"}).toUpperCase();
+  var logoHTML="<img src='data:image/jpeg;base64,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' style='height:28px;display:block;' alt='Boulanger'>";
+  var rows="";
+  all.forEach(function(item,i){
+    var cat=CATS.filter(function(c){return c.id===item.catId;})[0];
+    var ht=item.price/1.2;
+    var bg=i%2===0?"#fff":"#fafafa";
+    rows+="<tr style='background:"+bg+";border-bottom:1px solid #f0f0f0;'>";
+    rows+="<td style='padding:9px 11px;font-family:monospace;font-size:11px;color:#888;'>"+(item.ref&&item.ref!=="—"?item.ref:(cat?cat.label:"—"))+"</td>";
+    rows+="<td style='padding:9px 11px;text-align:center;font-size:12px;color:#666;'>1</td>";
+    rows+="<td style='padding:9px 11px;font-size:13px;font-weight:500;color:#111;'>"+item.name+"</td>";
+    rows+="<td style='padding:9px 11px;text-align:right;font-size:12px;color:#666;'>"+fmt(Math.round(ht*100)/100)+"</td>";
+    rows+="<td style='padding:9px 11px;text-align:right;font-size:13px;font-weight:700;color:#FF6600;'>"+fmt(item.price)+"</td>";
+    rows+="</tr>";
+  });
+  if(!rows) rows="<tr><td colspan='5' style='padding:20px;text-align:center;color:#ccc;'>Aucune prestation</td></tr>";
+
+  var obsHTML=obs?"<div style='margin:14px 26px;padding:11px 13px;background:#fffaf5;border-left:3px solid #FF6600;border-radius:0 6px 6px 0;'><div style='font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#FF6600;margin-bottom:4px;'>Observations</div><div style='font-size:12px;color:#555;line-height:1.6;'>"+obs+"</div></div>":"<div style='flex:1;'></div>";
+
+  var h="<div style='font-family:Plus Jakarta Sans,Arial,sans-serif;background:#fff;color:#111;width:100%;min-height:700px;display:flex;flex-direction:column;'>";
+  h+="<div style='display:flex;justify-content:space-between;align-items:flex-start;padding:22px 26px 18px;border-bottom:3px solid #FF6600;'>";
+  h+=logoHTML;
+  h+="<div style='text-align:right;'><div style='font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#aaa;margin-bottom:3px;'>Document commercial</div><div style='font-size:20px;font-weight:800;color:#FF6600;letter-spacing:-.3px;'>DEVIS</div><div style='font-size:11px;color:#999;margin-top:1px;'>"+num+" · "+date+"</div></div></div>";
+  h+="<div style='display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid #eee;'>";
+  h+="<div style='padding:14px 18px;border-right:1px solid #eee;'><div style='font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#FF6600;margin-bottom:8px;'>Client</div><div style='font-size:14px;font-weight:700;color:#111;margin-bottom:3px;'>"+nom+"</div><div style='font-size:12px;color:#666;'>"+tel+"</div></div>";
+  h+="<div style='padding:14px 18px;'><div style='font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#aaa;margin-bottom:8px;'>Magasin</div><div style='font-size:13px;font-weight:700;color:#111;margin-bottom:3px;'>BOULANGER</div><div style='font-size:11px;color:#888;line-height:1.7;'>63 rue des Métiers — ZAC de Jaux<br>Venette — 60880 JAUX<br>Service après-vente</div></div></div>";
+  h+="<table style='width:100%;border-collapse:collapse;'><thead><tr style='background:#1a1a1a;'>";
+  h+="<th style='padding:9px 11px;text-align:left;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#fff;'>Référence</th>";
+  h+="<th style='padding:9px 11px;text-align:center;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#fff;'>Qté</th>";
+  h+="<th style='padding:9px 11px;text-align:left;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#fff;'>Désignation</th>";
+  h+="<th style='padding:9px 11px;text-align:right;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#fff;'>Prix HT</th>";
+  h+="<th style='padding:9px 11px;text-align:right;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#FF6600;'>Total TTC</th>";
+  h+="</tr></thead><tbody>"+rows+"</tbody></table>";
+  h+="<div style='display:flex;justify-content:flex-end;border-top:1px solid #eee;'><div style='min-width:210px;'>";
+  h+="<div style='display:flex;justify-content:space-between;padding:8px 12px;border-bottom:1px solid #f0f0f0;font-size:12px;'><span style='color:#888;'>Total HT</span><span style='font-weight:500;'>"+fmt(Math.round(totalHT*100)/100)+"</span></div>";
+  h+="<div style='display:flex;justify-content:space-between;padding:8px 12px;border-bottom:1px solid #f0f0f0;font-size:12px;'><span style='color:#888;'>TVA 20%</span><span style='font-weight:500;'>"+fmt(Math.round(totalTVA*100)/100)+"</span></div>";
+  h+="<div style='display:flex;justify-content:space-between;align-items:center;padding:11px 12px;background:#FF6600;'><span style='font-size:11px;font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:.08em;'>Total TTC</span><span style='font-size:20px;font-weight:800;color:#fff;letter-spacing:-.4px;'>"+fmt(Math.round(total*100)/100)+"</span></div>";
+  h+="</div></div>";
+  h+=obsHTML;
+  h+="<div style='background:#f9f9f9;border-top:1px solid #eee;padding:12px 26px;display:flex;justify-content:space-between;align-items:center;margin-top:auto;'>";
+  h+="<div><div style='font-size:10px;font-weight:700;color:#333;'>DEVIS VALIDE JUSQU&#39;AU <span style='color:#FF6600;'>"+validite+"</span></div><div style='font-size:9px;color:#aaa;margin-top:2px;'>Sous réserve des stocks disponibles</div></div>";
+  h+="<div style='font-size:10px;color:#bbb;'>Boulanger · SAV · "+date+"</div></div>";
+  h+="</div>";
+
+  var doc=document.getElementById("dvdoc");
+  if(doc) doc.innerHTML=h;
+}
+
+function printDevis(){
+  var inner=document.getElementById("dvdoc");
+  if(!inner||inner.querySelector(".empico")){buildDevis();setTimeout(printDevis,300);return;}
+  var body=inner.innerHTML;
+  var w=null;
+  try{ w=window.open("","_blank","width=700,height=950"); }catch(e){}
+  if(!w||w.closed||typeof w.document==="undefined"){
+    // Popup bloqué — fallback : impression de la page en masquant le reste
+    var style=document.createElement("style");
+    style.id="print-override";
+    style.textContent="@media print{body>*{display:none!important;} #print-frame{display:block!important;position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;background:#fff;overflow:auto;} }";
+    document.head.appendChild(style);
+    var frame=document.createElement("div");
+    frame.id="print-frame";
+    frame.style.display="none";
+    frame.innerHTML=body;
+    document.body.appendChild(frame);
+    window.print();
+    setTimeout(function(){
+      var s=document.getElementById("print-override");
+      if(s) s.remove();
+      var f=document.getElementById("print-frame");
+      if(f) f.remove();
+    },1000);
+    return;
+  }
+  w.document.open();
+  w.document.write("<!DOCTYPE html><html><head><meta charset='UTF-8'>");
+  w.document.write("<link href='https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap' rel='stylesheet'>");
+  w.document.write("<style>*{box-sizing:border-box;margin:0;padding:0;}body{background:#fff;font-family:'Plus Jakarta Sans',Arial,sans-serif;}@page{size:A4 portrait;margin:8mm;}@media print{body{padding:0;}}</style>");
+  w.document.write("</head><body>"+body+"</body></html>");
+  w.document.close();
+  w.onload=function(){setTimeout(function(){w.print();},400);};
+}
+
+// ─── FICHES ───
+function rFiches(){
+  var DOCS=[
+    {icon:"🌀",name:"Conseils aspirateur",  sub:"Balais, laveur, robot",              file:"Aspirateur.docx"},
+    {icon:"☕",name:"Conseils détartrage",   sub:"Cafetière, broyeur, centrale vapeur",file:"Broyeurs.docx"},
+    {icon:"🎧",name:"Conseils écouteurs",    sub:"Écouteurs & AirPods",               file:"Ecouteurs_airpods.docx"},
+    {icon:"🖨️",name:"Conseils imprimante",  sub:"Entretien & nettoyage",              file:"Imprimantes.docx"}
+  ];
+  var h='<div class="pgt">📎 <span>Fiches conseils</span></div><div class="pgs">Fiches d&#39;entretien à remettre au client</div>';
+  h+='<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;">';
+  DOCS.forEach(function(doc){
+    h+='<div class="fdl" data-action="dl" data-file="'+doc.file+'" style="cursor:pointer;">';
+    h+='<div class="fdltop"><div class="fdlico">'+doc.icon+'</div><div class="fdlbdg">Word</div></div>';
+    h+='<div class="fdln">'+doc.name+'</div><div class="fdls">'+doc.sub+'</div>';
+    h+='<div class="fdlft"><span class="fdlf">'+doc.file+'</span><span class="fdlbtn" id="btn-'+doc.file+'">⬇ Télécharger</span></div></div>';
+  });
+  h+='</div>';
+  h+='<div id="fiche-msg" style="margin-top:14px;padding:11px 14px;background:var(--orl);border:1.5px solid var(--orm);border-radius:var(--r);font-size:12px;color:var(--t2);">💡 <strong style="color:var(--or);">Astuce :</strong> Place les fichiers .docx dans le même dossier que cet outil.</div>';
+  document.getElementById("main").innerHTML=h;
+}
+
+function doDownload(file){
+  var btn=document.getElementById("btn-"+file);
+  if(btn){btn.textContent="⏳ Vérification…";}
+  fetch(file,{method:"HEAD"}).then(function(r){
+    if(r.ok){
+      var a=document.createElement("a");
+      a.href=file;a.download=file;document.body.appendChild(a);a.click();document.body.removeChild(a);
+      if(btn){btn.textContent="✅ Téléchargé";}
+      setTimeout(function(){if(btn)btn.textContent="⬇ Télécharger";},3000);
+    } else {
+      showFicheErr(file,btn);
+    }
+  }).catch(function(){
+    showFicheErr(file,btn);
+  });
+}
+
+function showFicheErr(file,btn){
+  if(btn){btn.textContent="⬇ Télécharger";}
+  var msg=document.getElementById("fiche-msg");
+  if(msg){
+    msg.style.background="#fdecea";msg.style.borderColor="#e74c3c";
+    msg.innerHTML='⚠️ <strong style="color:#c0392b;">Fichier introuvable :</strong> <code>'+file+'</code> — place-le dans le même dossier que cet outil HTML puis réessaie.';
+    setTimeout(function(){
+      if(msg){msg.style.background="";msg.style.borderColor="";
+      msg.innerHTML='💡 <strong style="color:var(--or);">Astuce :</strong> Place les fichiers .docx dans le même dossier que cet outil.';}
+    },5000);
+  }
+}
+
+// ─── ICLOUD ───
+function rIcloud(){
+  var h='<div class="pgt">🔍 <span>Vérification iCloud</span></div><div class="pgs">Saisis l\'IMEI ou le numéro de série pour vérifier le statut Activation Lock</div>';
+
+  // Champ de saisie central
+  h+='<div class="icc" style="margin-bottom:18px;">';
+  h+='<div class="ichead"><div class="icico" style="background:#f0f4ff;">📱</div>';
+  h+='<div><div style="font-size:14px;font-weight:700;">IMEI / Numéro de série</div>';
+  h+='<div style="font-size:11px;color:var(--t3);">Réglages → Général → Informations</div></div></div>';
+  h+='<div style="display:flex;gap:10px;align-items:flex-end;">';
+  h+='<div style="flex:1;">';
+  h+='<label class="fl">IMEI (15 chiffres) ou N° de série</label>';
+  h+='<input class="fi" id="imei-in" type="text" maxlength="20" placeholder="352999061452627 ou F2LWP0KBHG7W" inputmode="text" autocomplete="off">';
+  h+='</div>';
+  h+='<button id="btn-luhn" style="padding:9px 16px;background:var(--or);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:var(--f);white-space:nowrap;">✔ Valider IMEI</button>';
+  h+='</div>';
+  h+='<div id="luhn-res"></div></div>';
+
+  // Boutons de redirection vers les outils externes
+  h+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px;">';
+
+  // imei.space
+  h+='<div class="icc">';
+  h+='<div class="ichead"><div class="icico" style="background:#e8f4ff;font-size:16px;">🔎</div>';
+  h+='<div><div style="font-size:14px;font-weight:700;">imei.space</div>';
+  h+='<div style="font-size:11px;color:var(--t3);">Statut iCloud, réseau, garantie</div></div></div>';
+  h+='<p style="font-size:12px;color:var(--t2);margin-bottom:12px;line-height:1.5;">Vérification complète du statut Activation Lock, blacklist opérateur et couverture garantie Apple.</p>';
+  h+='<button id="btn-imeispc" style="width:100%;padding:10px;background:#0057b8;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:var(--f);">↗ Ouvrir imei.space</button>';
+  h+='</div>';
+
+  // iunlocker
+  h+='<div class="icc">';
+  h+='<div class="ichead"><div class="icico" style="background:#fff0e8;font-size:16px;">☁️</div>';
+  h+='<div><div style="font-size:14px;font-weight:700;">iUnlocker</div>';
+  h+='<div style="font-size:11px;color:var(--t3);">Find My iPhone / Activation Lock</div></div></div>';
+  h+='<p style="font-size:12px;color:var(--t2);margin-bottom:12px;line-height:1.5;">Vérifie directement si le Find My iPhone est activé sur l\'appareil — essentiel avant toute reprise ou réparation.</p>';
+  h+='<button id="btn-iunlock" style="width:100%;padding:10px;background:#1a1a1a;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:var(--f);">↗ Ouvrir iUnlocker</button>';
+  h+='</div>';
+
+  h+='</div>';
+
+  // Autres outils complémentaires
+  h+='<div class="icc"><div style="font-size:10.5px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.09em;margin-bottom:12px;">Autres outils complémentaires</div>';
+  h+='<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;">';
+  [
+    {ico:"☁️",n:"Apple Activation Lock",s:"Vérification officielle Apple",   u:"https://www.icloud.com/activationlock/"},
+    {ico:"🛡️",n:"Apple Coverage",       s:"Garantie & couverture Apple",     u:"https://checkcoverage.apple.com/"},
+    {ico:"📋",n:"IMEI.info",            s:"Réseau, garantie, statut détaillé",u:"https://www.imei.info/"}
+  ].forEach(function(x){
+    h+='<a class="extc" href="'+x.u+'" target="_blank"><div class="extico">'+x.ico+'</div><div class="extb"><div class="extn">'+x.n+'</div><div class="exts">'+x.s+'</div></div><div class="extbtn">↗ Ouvrir</div></a>';
+  });
+  h+='</div></div>';
+  h+='<div style="margin-top:14px;padding:11px 14px;background:var(--orl);border:1.5px solid var(--orm);border-radius:var(--r);font-size:12px;color:var(--t2);">⚠️ <strong style="color:var(--or);">Important :</strong> Un appareil avec l\'Activation Lock ne peut pas être réinitialisé sans les identifiants Apple du propriétaire.</div>';
+  document.getElementById("main").innerHTML=h;
+
+  // Validation Luhn
+  document.getElementById("btn-luhn").addEventListener("click",function(){
+    var val=document.getElementById("imei-in").value.trim().replace(/\D/g,"");
+    var res=document.getElementById("luhn-res");
+    if(val.length!==15){
+      res.innerHTML='<div class="icres icerr" style="margin-top:8px;">❌ L\'IMEI doit contenir exactement 15 chiffres (le N° de série n\'est pas validable par Luhn).</div>';
+      return;
+    }
+    var sum=0,alt=false;
+    for(var i=val.length-1;i>=0;i--){var n=parseInt(val[i]);if(alt){n*=2;if(n>9)n-=9;}sum+=n;alt=!alt;}
+    if(sum%10===0){
+      res.innerHTML='<div class="icres icok" style="margin-top:8px;">✅ IMEI <strong>'+val+'</strong> valide (Luhn OK) — utilise les boutons ci-dessous pour vérifier le statut iCloud.</div>';
+    } else {
+      res.innerHTML='<div class="icres icerr" style="margin-top:8px;">❌ IMEI invalide selon l\'algorithme de Luhn — vérifie le numéro.</div>';
+    }
+  });
+
+  // Redirection imei.space avec IMEI pré-rempli
+  document.getElementById("btn-imeispc").addEventListener("click",function(){
+    var val=document.getElementById("imei-in").value.trim().replace(/\s/g,"");
+    var url=val
+      ? "https://imei.space/"+encodeURIComponent(val)
+      : "https://imei.space/";
+    window.open(url,"_blank");
+  });
+
+  // Redirection iUnlocker avec IMEI/serial pré-rempli
+  document.getElementById("btn-iunlock").addEventListener("click",function(){
+    var val=document.getElementById("imei-in").value.trim().replace(/\s/g,"");
+    var url=val
+      ? "https://www.iunlocker.fr/?imei="+encodeURIComponent(val)
+      : "https://www.iunlocker.fr/";
+    window.open(url,"_blank");
+  });
+}
+
+// Search input listeners
+document.getElementById("search").addEventListener("input",function(){
+  searchQ=this.value.trim();
+  document.getElementById("sc").style.display=searchQ?"block":"none";
+  if(searchQ){activeCat=null;buildSB();rSearch();}
+  else{buildSB();rHome();}
+});
+document.getElementById("sc").addEventListener("click",function(){
+  document.getElementById("search").value="";
+  searchQ="";this.style.display="none";
+  buildSB();rHome();
+});
+document.getElementById("rb").addEventListener("click",function(){goView("recap");});
+
+// Init
+buildSB();
+rHome();
+</script>
+</body>
+</html>
